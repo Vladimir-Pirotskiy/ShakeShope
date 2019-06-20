@@ -1,0 +1,7 @@
+<!--
+ - Created by Artem on 20.06.2019.
+ -->
+
+<aura:event type="COMPONENT" description="sortPriceEvent">
+    <aura:attribute name="sortPrice" type="Integer"/>
+</aura:event>

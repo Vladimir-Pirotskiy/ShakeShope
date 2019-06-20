@@ -1,0 +1,14 @@
+<aura:component controller="ServerConnection" description="CategoryList">
+    <aura:attribute name="typeList" type="Categoria__c[]"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:registerEvent name="category" type="c:CategoryEvent"/>
+    <aura:registerEvent name="sortByPrice" type="c:sortPriceEvent"/>
+
+    <aura:iteration items="{!v.typeList}" var="item">
+        <lightning:button iconName="utility:record" variant="base" label="{!item.Category_Name__c}"
+                          onclick="{!c.selectCategory}"/>
+        <br/>
+    </aura:iteration>
+    <lightning:input aura:id="priceSort" class="slds-size--xx-small" value="0" type="number"  label="price less than:"/>
+    <lightning:button label="search" variant="neutral" onclick="{!c.searchForPrice}"/>
+</aura:component>

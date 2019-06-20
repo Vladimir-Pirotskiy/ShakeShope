@@ -1,0 +1,38 @@
+<aura:component implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes"
+                controller="ServerConnection" description="Cart">
+    <aura:handler name="productForDelete" event="c:deleteFromCart" action="{!c.deleteFromCart}"/>
+    <aura:registerEvent name="pushInvoice" type="c:addToInvoice"/>
+    <aura:attribute name="Items" type="Shop_Product__c[]"/>
+    <aura:attribute name="quantity" type="Integer"/>
+    <aura:attribute name="totalPrice" type="Decimal" default="0"/>
+    <aura:method name="addToCartMethod" action="{!c.addToCart}">
+        <aura:attribute name="ForCart" type="Shop_Product__c"/>
+        <aura:attribute name="count" type="Integer"/>
+    </aura:method>
+    <lightning:card>
+        <aura:set attribute="footer">
+            <div>
+                <div>
+                    <h1>To pay:
+                        <lightning:formattedNumber style="currency" value="{!v.totalPrice}"/>
+                    </h1>
+                </div>
+                <br/>
+                <lightning:button label="clear cart" variant="destructive" onclick="{!c.clearCart}"/>
+                <lightning:button label="make an order" variant="success" onclick="{!c.saveNewInvoice}"/>
+            </div>
+        </aura:set>
+        <fieldset class="slds-box slds-theme--default slds-container--small">
+            <legend class="slds-text-heading--small slds-p-vertical--medium">
+                <h1 class="slds-text-heading--medium">Shop Cart <lightning:icon iconName="utility:cart"/> </h1>
+            </legend>
+            <aura:iteration items="{!v.Items}" var="item">
+                <div class="slds-p-horizontal_small">
+                    <c:item product="{!item}"  quantityOfItem="{!v.quantity}" countPrice="{!item.Price__c}"/>
+                </div>
+                <br/>
+            </aura:iteration>
+        </fieldset>
+    </lightning:card>
+
+</aura:component>

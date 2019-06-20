@@ -1,0 +1,20 @@
+<aura:component description="showMore">
+    <aura:attribute name="product" type="Shop_Product__c"/>
+    <div class="slds-grid">
+        <div class="slds-col slds-size_2-of-5">
+            <img class="slds-size--small" src="{!v.product.Image_Product__c}" alt="product image"/><br/><br/>
+        </div>
+        <div class="slds-col slds-size_3-of-5">
+            <br/>
+            <h1 class="slds-text-heading--small"><lightning:formattedText  value="{!v.product.Name}"/></h1>
+            <h1 class="slds-text-heading--x-small"><b>Price: </b> <lightning:formattedNumber style="currency"  value="{!v.product.Price__c}"/></h1>
+            <h1 class="slds-text-heading--x-small"><b>Total quantity: </b> <lightning:formattedNumber  value="{!v.product.quantity__c}"/></h1>
+            <h1 class="slds-text-heading--x-small"><b>Description: </b> <lightning:formattedText  value="{!v.product.Description__c}"/></h1>
+            <h1 class="slds-text-heading--x-small"><b>Tech specs: </b> <lightning:formattedText  value="{!v.product.Tech_Specs__c}"/></h1>
+
+        </div>
+    </div>
+
+
+
+</aura:component>

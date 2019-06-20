@@ -1,0 +1,36 @@
+<aura:component implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes"
+                controller="ServerConnection" description="ProductItem">
+    <aura:handler name="category" event="c:CategoryEvent" action="{!c.setCategory}"/>
+    <aura:handler name="sortByPrice" event="c:sortPriceEvent" action="{!c.sortPrice}"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler name="change" value="{!v.productForItem}" action="{!c.changeCartAttribute}"/>
+    <aura:handler name="cartUpdate" event="c:CartUpdateEvent" action="{!c.setProductForItem}"/>
+    <aura:attribute name="productForItem" type="Shop_Product__c"/>
+    <aura:attribute name="ProductList" type="Shop_Product__c[]"/>
+    <aura:attribute name="quantityOfItems" type="Integer"/>
+
+    <div class="slds-grid">
+        <div class="slds-col slds-size_1-of-8">
+
+            <h1 class="slds-text-heading--medium">Category:</h1>
+            <lightning:button iconName="utility:record" variant="base" label="All categories" onclick="{!c.doInit}"/>
+            <br/>
+            <c:CategoryList/>
+        </div>
+        <div class="slds-col slds-size_5-of-8">
+            <div class="slds-grid slds-wrap">
+                <aura:iteration items="{!v.ProductList}" var="item">
+                    <div class="slds-col slds-size_1-of-2 slds-p-around_small">
+                        <c:ProductItem ShopProduct="{!item}"/>
+                    </div>
+
+                </aura:iteration>
+            </div>
+        </div>
+        <div class="slds-col slds-size_2-of-8">
+            <c:Cart aura:id="cartComponent"/>
+        </div>
+
+
+    </div>
+</aura:component>

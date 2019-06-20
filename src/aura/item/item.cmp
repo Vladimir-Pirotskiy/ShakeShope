@@ -1,0 +1,25 @@
+<aura:component description="item">
+    <aura:registerEvent name="productForDelete" type="c:deleteFromCart"/>
+    <aura:attribute name="product" type="Shop_Product__c"/>
+    <aura:attribute name="quantityOfItem" type="Integer"/>
+    <aura:attribute name="countPrice" type="Integer"/>
+
+        <h1>
+            <lightning:formattedText aura:id="product" value="{!v.product.Name}"/>
+        </h1>
+        <lightning:formattedNumber aura:id="price" style="currency" value="{!v.countPrice}"/>
+    <lightning:input aura:id="price"
+                         class="slds-size--xx-small"
+                         label="quantity"
+                         type="number"
+                         name="quantity"
+                         value=""
+                         min="1"
+                         max="{!v.product.quantity__c}"
+                         placeholder="{!v.quantityOfItem}" onchange="{!c.changeQuantity}"/>
+    <lightning:buttonIcon class="slds-text-align--right" iconName="utility:delete" variant="bare" alternativeText="delete"
+                          onclick="{!c.deleteCurrentItem}"/>
+
+
+
+</aura:component>

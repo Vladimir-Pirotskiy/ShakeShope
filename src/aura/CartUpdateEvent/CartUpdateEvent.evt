@@ -1,0 +1,5 @@
+
+<aura:event type="COMPONENT" description="CartUpdateEvent">
+    <aura:attribute name="itemForCart" type="Shop_Product__c"/>
+    <aura:attribute name="countOfItems" type="Integer"/>
+</aura:event>

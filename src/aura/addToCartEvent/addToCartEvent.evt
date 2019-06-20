@@ -1,0 +1,3 @@
+<aura:event type="APPLICATION" description="addToCartEvent">
+    <aura:attribute name="addToCart" type="Shop_Product__c" access="public"/>
+</aura:event>

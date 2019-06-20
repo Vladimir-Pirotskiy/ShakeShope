@@ -1,0 +1,4 @@
+<aura:event type="COMPONENT" description="deleteFromCart">
+    <aura:attribute name="itemForDelete" type="Shop_Product__c"/>
+<<<<<<< HEAD
+</aura:event>

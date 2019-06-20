@@ -1,0 +1,13 @@
+<aura:component implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes">
+    <div>
+        <lightning:verticalNavigation>
+            <lightning:verticalNavigationSection label="Reports">
+                <lightning:verticalNavigationItem label="Recent" name="recent" />
+                <lightning:verticalNavigationItem label="Created by Me" name="created" />
+                <lightning:verticalNavigationItem label="Private Reports" name="private" />
+                <lightning:verticalNavigationItem label="Public Reports" name="public" />
+                <lightning:verticalNavigationItem label="All Reports" name="all" />
+            </lightning:verticalNavigationSection>
+        </lightning:verticalNavigation>
+    </div>
+</aura:component>
